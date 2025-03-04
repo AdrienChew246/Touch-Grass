@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3F2C89942D76BF0600669E4C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3F2C89932D76BF0100669E4C /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		3F2C89772D76B39C00669E4C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		3F2C89662D76B39B00669E4C /* Touch Grass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Touch Grass.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F2C89762D76B39C00669E4C /* Touch GrassTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Touch GrassTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F2C89802D76B39C00669E4C /* Touch GrassUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Touch GrassUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F2C89932D76BF0100669E4C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +80,7 @@
 		3F2C895D2D76B39A00669E4C = {
 			isa = PBXGroup;
 			children = (
+				3F2C89932D76BF0100669E4C /* README.md */,
 				3F2C89682D76B39B00669E4C /* Touch Grass */,
 				3F2C89792D76B39C00669E4C /* Touch GrassTests */,
 				3F2C89832D76B39C00669E4C /* Touch GrassUITests */,
@@ -212,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F2C89942D76BF0600669E4C /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
