@@ -12,6 +12,21 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            ZStack {
+                Rectangle()
+                    .frame(width: 375, height: 150)
+                    .foregroundColor(Color(#colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)))
+                
+                HStack {
+                    Image("GrassIcon")
+                        .resizable()
+                        .frame(width: 100, height: 100)
+                    
+                    Text("TOUCH GRASS!!")
+                        .font(.system(size: 30, weight: .bold, design: .default))
+                }
+            }
+            
             Text("\(Int(percent))%")
                 .font(.system(size: 72, weight: .bold, design: .default))
             
