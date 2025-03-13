@@ -49,8 +49,18 @@ struct ContentView: View {
                             label: { Text("Increase") })
                 }
             }
+            
+            ZStack {
+                Rectangle()
+                    .frame(width: 375, height: 350)
+                    .foregroundColor(Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)))
+                
+                Text("(INFO AND MORE UI ELEMENTS)")
+                    .font(.system(size: 50, weight: .bold, design: .default))
+            }
+            
         }
-        .padding(.top, -350)
+//        .padding(.top, -350)
     }
 }
 
