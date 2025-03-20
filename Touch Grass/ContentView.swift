@@ -57,16 +57,21 @@ struct ContentView: View {
                         .frame(width: 375, height: 300)
                         .foregroundColor(Color(#colorLiteral(red: 0.94106704, green: 0.7699710727, blue: 0.4476546049, alpha: 1)))
                     
-//                    Text("(INFO AND MORE UI ELEMENTS)")
-//                        .font(.system(size: 50, weight: .bold, design: .default))
+                    Text("TEXT")
+                        .font(.system(size: 72, weight: .bold, design: .default))
                 }
-                Image("ButtonTemplate")
+                    
+                // Menu Template
+                Image("MenuTemplate")
                     .resizable()
                     .scaledToFill()
-//                    .ignoresSafeArea(.all)
+                    .ignoresSafeArea(.all)
                     .containerRelativeFrame(.horizontal) { size, axis in
                         size
                     }
+                    .opacity(0.3)
+                
+                // Menu
             }
             .padding(.top, 50)
         }
