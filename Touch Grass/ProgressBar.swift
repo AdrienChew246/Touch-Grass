@@ -11,7 +11,7 @@ struct ProgressBar: View {
     var width: CGFloat = 200
     var height: CGFloat = 20
     var percent: CGFloat = 50
-    var baseColor = Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.1))
+    var baseColor = Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
     var barColor = Color(#colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1))
     
     
@@ -25,6 +25,21 @@ struct ProgressBar: View {
             RoundedRectangle(cornerRadius: height, style: .continuous)
                 .frame(width: percent * multiplier, height: height)
                 .foregroundColor(barColor)
+            
+            
+//            Image("ProgressBarLeft")
+//                .resizable()
+//                .scaledToFit()
+//                .frame(width: percent * multiplier, height: height)
+//            
+//            Image("ProgressBarRight")
+//                .resizable()
+//                .scaledToFit()
+//                .frame(width: percent * multiplier, height: height)
+//          
+//            Image("ProgressBar")
+//                .resizable()
+//                .frame(width: percent * multiplier, height: height)
         }
     }
 }
