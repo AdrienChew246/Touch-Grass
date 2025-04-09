@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import CoreLocationUI
+import MapKit
 
 // Bluetooth stuff
 
 
 struct ContentView: View {
     @StateObject var bleManager = BLEManager()
+    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 30, longitude: -97), span: MKCoordinateSpan(latitudeDelta: 5, longitudeDelta: 5))
     @State var percent: CGFloat = 0
     @State var text: String = "(Placeholder)"
     @State var menuState: CGFloat = 0
@@ -141,6 +144,16 @@ struct ContentView: View {
                                 bleManager.startScanning()
                             }
                         }
+                    } else if(menuState == 2){
+                        ZStack(alignment: .bottom) {
+                            Map(coordinateRegion: $region, showsUserLocation: true)
+                                .tint(.pink)
+                            
+                            LocationButton(.currentLocation) {
+                                print("Get Location")
+                            }
+                            .padding(.bottom, 50)
+                        }
                     }
                 }
                 
@@ -158,42 +171,73 @@ struct ContentView: View {
                     // Menu
                     Image("Menu")
                         .resizable()
-                        .frame(width: 400.0, height: 200.0)
+//                        .frame(width: 400.0, height: 200.0)
+                        .offset(x: -0, y: -10)
                         .scaledToFill()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 430, height: 300)
                         .ignoresSafeArea(.all)
                         .containerRelativeFrame(.horizontal) { size, axis in
                             size
                         }
                     
                     Button (action: { homePressed() }) {
-                        Image("HomeButton")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 90, height: 80)
+                        if (menuState == 1) {
+                            Image("BloomButton")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 100, height: 80)
+                        } else {
+                            Image("BudButton")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 50, height: 80)
+                        }
                     }
-                    .offset(x: -102, y: -125)
+                    .offset(x: -120, y: -90)
                     
                     Button (action: { infoPressed() }) {
-                        Image("InfoButton")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 50, height: 65)
+                        if (menuState == 2) {
+                            Image("BloomButton")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 100, height: 80)
+                        } else {
+                            Image("BudButton")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 50, height: 80)
+                        }
                     }
-                    .offset(x: -35, y: -100)
+                    .offset(x: -45, y: -90)
                     
                     Button (action: { dangersPressed() }) {
-                        Image("DangersButton")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 75, height: 90)
+                        if (menuState == 3) {
+                            Image("BloomButton")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 100, height: 80)
+                        } else {
+                            Image("BudButton")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 50, height: 80)
+                        }
                     }
-                    .offset(x: 50, y: -135)
+                    .offset(x: 50, y: -115)
                     
                     Button (action: { UVPressed() }) {
-                        Image("UVButton")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 70, height: 80)
+                        if (menuState == 4) {
+                            Image("BloomButton")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 100, height: 80)
+                        } else {
+                            Image("BudButton")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 50, height: 80)
+                        }
                     }
                     .offset(x: 125, y: -105)
                 }
