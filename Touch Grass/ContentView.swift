@@ -236,10 +236,17 @@ struct ContentView: View {
                                         .padding([.top, .leading, .trailing], 20)
                                     Text(" - wear sunscreen! \n - cover up (hats, long sleeves, sunglasses) \n - stay in the shade")
                                         .frame(maxWidth: .infinity, alignment: .leading)
-                                        .padding([.top, .trailing], 20)
+                                        .padding([.top, .bottom, .trailing], 20)
                                         .padding(.leading, 50)
                                 }
                             }
+                        }
+                    } else if (menuState == 4) {
+                        ZStack {
+                            Rectangle()
+                                .frame(width: 375, height: 350)
+                                .foregroundColor(Color(#colorLiteral(red: 0.8431431651, green: 0.6916723847, blue: 0.4057167172, alpha: 1)))
+                            
                         }
                     }
                 }
@@ -294,9 +301,10 @@ struct ContentView: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 50, height: 80)
+                                .rotationEffect(Angle(degrees: 30))
                         }
                     }
-                    .offset(x: -45, y: -90)
+                    .offset(x: -35, y: -90)
                     
                     Button (action: { dangersPressed() }) {
                         if (menuState == 3) {
@@ -309,6 +317,7 @@ struct ContentView: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 50, height: 80)
+                                .rotationEffect(Angle(degrees: 20))
                         }
                     }
                     .offset(x: 50, y: -115)
@@ -324,9 +333,10 @@ struct ContentView: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 50, height: 80)
+                                .rotationEffect(Angle(degrees: 60))
                         }
                     }
-                    .offset(x: 125, y: -105)
+                    .offset(x: 135, y: -95)
                 }
             }
             .padding(.top, 100)
