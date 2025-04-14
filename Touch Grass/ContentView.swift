@@ -8,17 +8,45 @@
 import SwiftUI
 import CoreLocationUI
 import MapKit
+import CoreLocation
 
-// Bluetooth stuff
+// UV Index Table
+struct UVIndex: Identifiable {
+    let lat: Int
+    let jan: Int
+    let feb: Int
+    let mar: Int
+    let apr: Int
+    let may: Int
+    let jun: Int
+    let jul: Int
+    let aug: Int
+    let sep: Int
+    let oct: Int
+    let nov: Int
+    let dec: Int
+    
+    var id: Int { lat }
+}
 
 
 struct ContentView: View {
     @StateObject var bleManager = BLEManager()
-    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 30, longitude: -97), span: MKCoordinateSpan(latitudeDelta: 5, longitudeDelta: 5))
+    @State private var region = MKCoordinateRegion(
+        center: CLLocationCoordinate2D(latitude: 30, longitude: -97),
+        span: MKCoordinateSpan(latitudeDelta: 5, longitudeDelta: 5))
     @State var percent: CGFloat = 0
     @State var text: String = "(Placeholder)"
     @State var menuState: CGFloat = 0
-    
+    @State private var UVIndexElems: [UVIndex] = [
+        UVIndex(lat: 25, jan: 6, feb: 8, mar: 9, apr: 10, may: 10, jun: 11, jul: 12, aug: 11, sep: 10, oct: 8, nov: 6, dec: 5),
+        UVIndex(lat: 30, jan: 4, feb: 6, mar: 8, apr: 10, may: 10, jun: 11, jul: 12, aug: 11, sep: 9, oct: 7, nov: 5, dec: 4),
+        UVIndex(lat: 35, jan: 3, feb: 4, mar: 5, apr: 8, may: 9, jun: 9, jul: 10, aug: 9, sep: 7, oct: 4, nov: 3, dec: 2),
+        UVIndex(lat: 40, jan: 2, feb: 3, mar: 4, apr: 6, may: 8, jun: 9, jul: 9, aug: 8, sep: 6, oct: 4, nov: 2, dec: 1),
+        UVIndex(lat: 45, jan: 1, feb: 2, mar: 3, apr: 5, may: 6, jun: 7, jul: 8, aug: 6, sep: 4, oct: 2, nov: 1, dec: 1),
+        UVIndex(lat: 50, jan: 1, feb: 1, mar: 3, apr: 4, may: 6, jun: 7, jul: 7, aug: 6, sep: 4, oct: 2, nov: 1, dec: 0)
+    ]
+        
     func homePressed() {
         text = "Home"
         menuState = 1
@@ -171,8 +199,7 @@ struct ContentView: View {
                                         .padding([.top, .leading, .trailing], 20)
                                     Text("What is UV radiation anyway?")
                                         .font(.title)
-                                        .fontWeight(.bold)
-                                        .foregroundColor(Color(#colorLiteral(red: 0.5028434396, green: 0.598954618, blue: 0.3286795616, alpha: 1)))
+                                        .fontWeight(.heavy)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                         .padding([.top, .leading, .trailing], 20)
                                         .padding(.bottom, -30)
@@ -191,8 +218,7 @@ struct ContentView: View {
                                         .padding([.top, .leading, .trailing], 20)
                                     Text("Let’s Talk About Skin Cancer")
                                         .font(.title)
-                                        .fontWeight(.bold)
-                                        .foregroundColor(Color(#colorLiteral(red: 0.5028434396, green: 0.598954618, blue: 0.3286795616, alpha: 1)))
+                                        .fontWeight(.heavy)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                         .padding([.top, .leading, .trailing], 20)
                                         .padding(.bottom, -30)
@@ -207,8 +233,7 @@ struct ContentView: View {
                                         .padding([.top, .leading, .trailing], 20)
                                     Text("Sunscreen!! (Cancer Defense System)")
                                         .font(.title)
-                                        .fontWeight(.bold)
-                                        .foregroundColor(Color(#colorLiteral(red: 0.5028434396, green: 0.598954618, blue: 0.3286795616, alpha: 1)))
+                                        .fontWeight(.heavy)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                         .padding([.top, .leading, .trailing], 20)
                                         .padding(.bottom, -30)
@@ -223,8 +248,7 @@ struct ContentView: View {
                                         .padding([.top, .leading, .trailing], 20)
                                     Text("Bottom Line?")
                                         .font(.title)
-                                        .fontWeight(.bold)
-                                        .foregroundColor(Color(#colorLiteral(red: 0.5028434396, green: 0.598954618, blue: 0.3286795616, alpha: 1)))
+                                        .fontWeight(.heavy)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                         .padding([.top, .leading, .trailing], 20)
                                         .padding(.bottom, -30)
@@ -247,6 +271,9 @@ struct ContentView: View {
                                 .frame(width: 375, height: 350)
                                 .foregroundColor(Color(#colorLiteral(red: 0.8431431651, green: 0.6916723847, blue: 0.4057167172, alpha: 1)))
                             
+//                            Table(UVIndexElems) {
+//                                TableColumn("Latitude", value: \UVIndex.lat)
+//                            }
                         }
                     }
                 }
